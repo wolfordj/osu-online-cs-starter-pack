@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">OSU Online CS Tools</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="class-number">CS123 <span class="menu-closed">&#11208;</span><span class="menu-open">&#11206;</span></span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/module-01/overview.html">Module 1 Overview</a><a class="page-link" href="/module-01/exploration-1.html">Exploration 1</a><a class="page-link" href="/module-01/exploration-2.html">Exploration 2</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <div class="post-content">
+    <p><img style="float: right; padding-left: 10px; max-width: 1309px;" src="//eecs.oregonstate.edu/ecampus-video/template/icon_exploration.png" alt="activity" width="75" height="75" /></p>
+<h2 class="icon-header">
+    <span>
+        Repl.it
+    </span>
+</h2>
+
+<p><a href="repl.it">Repl.it</a> is a tool that allows instructors to embed interactive code within web pages. It will work in Canvas, HTML pages, really anywhere that an iframe or oEmbed is supported.</p>
+
+<p>Instructors are strongly encouraged to make any code example that exists within course content interactive if possible.</p>
+
+<p>There are two main ways to display Repls (a code example on Repl.it is called a Repl). One is purely to demonstrate code and to potentially let students tinker with it and it looks like this</p>
+
+<iframe height="400px" width="100%" src="https://repl.it/@JustinWolford/If-Bank-Conditional?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+<p>The best practice is to use these for code examples which are directly embedded with text or videos explaining concepts. This allows students to see the code run and to tinker with it to see the results of making changes to it. There is no correct or incorrect solution to the problem. It simply runs whatever code it is populated with.</p>
+
+<p>The other option to display code is via an assignment. An image of this is shown below as one needs to be enrolled in a class to access this form of Repl.</p>
+
+<p><img src="./images/repl-class.gif" alt="Classroom Assignment" /></p>
+
+<p>Comprehensive documentation of Repl.it can be found <a href="https://repl.it/site/docs/repls/intro">at their official docs page</a>. For most topics, that is where you should go to get information on Repl.it.</p>
+
+<h2 id="osu-specifics">OSU Specifics</h2>
+
+<h3 id="accounts">Accounts</h3>
+<p>Some aspects of the use of Repl.it are specific to OSU. In particular we need to be conscientious about structuring Repls so that we can easily transition from one instructor to another within a class. Repl.it classrooms appear solve this problem for the assignment form of Repl. But we need to be careful as only the original creator of the classroom can manage instructor invites.</p>
+
+<p>It also does not solve the problem with embeddable non-assignment Repls as these cannot be associated to a Repl.it classroom.</p>
+
+<p>The following are the steps to begin using Repl.it in a new class.</p>
+
+<ol>
+  <li>Confirm with program leadership that the course does not have a preexisting Repl.it account.</li>
+  <li>Email the technology lead (currently Justin Wolford wolfordj@oregonstate.edu) asking for a <strong>mailing list</strong> to be created for the course. It will be of the form <code class="highlighter-rouge">coe_cs[course number]@oregonstate.edu</code>.</li>
+  <li>Make sure you sign up for and become an administrator of the mailing list.
+    <ul>
+      <li>This should be handled for you when the mailing list is created for you.</li>
+      <li>You can confirm you are an admin of the list by accessing <code class="highlighter-rouge">https://secure.engr.oregonstate.edu/mailman/admin/YOUR_MAILING_LIST</code>. If you can log into this page you are an administrator.</li>
+      <li>If you ever need to add or change administrators that is done via the <strong>General Option</strong> page.</li>
+    </ul>
+  </li>
+  <li>Create a Repl.it account using the same name (eg. coe_cs511) and sign up using the mailing list address and a password that is unique and can be shared with other instructors in the course.</li>
+  <li>Email the online program technology lead to get that account signed up as a teacher account</li>
+</ol>
+
+<p>If you have <strong>already begun work on a course using a personal Repl.it account</strong> you should contact the program technology lead and work to get your account renamed. If at all possible do not use one account for more than one course.</p>
+
+<h3 id="content-backup">Content Backup</h3>
+<p>Repl.it classrooms can be cloned. This can function as something of a backup. Once the major development work on a course is complete you should contact the program technology lead to have them clone your classroom so that the assignment Repls are backed up in a second classroom incase things somehow get altered or deleted unintentionally.</p>
+
+<p>Individual Repls can not be easily cloned.</p>
+
+<p>To that end <strong>it is suggested</strong> that you keep a class GitHub repository with the code that you use in your Repls. This is mainly a fallback in case we need to rebuild Repls.</p>
+
+<p>It may seem burdensome, but in fact you may find it easier to develop the code for the Repls locally then copy it to a Repl. If you are doing this, then when you complete the code for a Repl, just save each file in a way where you can tell what module it belongs to and periodically commit that directory with those files to the GitHub repo.</p>
+
+<h2 id="issues">Issues</h2>
+
+<ul>
+  <li>A common strategy for unit testing code which deals with input and output is to redirect <code class="highlighter-rouge">stdout</code>. It appears that this should generally be avoided in Repl.it unit tests. They seem to produce inconsistent and incorrect results if at any point <code class="highlighter-rouge">stdout</code> is redirect, even calls to redirect and reset it immediately sandwich the call to the function under test. There may be a good solution to this, but this far it seems elusive.</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+      <h2 class="footer-heading">OSU Online CS Tools</h2>
+        <ul class="contact-list">
+          <li class="p-name">Justin Wolford</li><li><a class="u-email" href="mailto:wolfordj@oregonstate.edu">wolfordj@oregonstate.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>This site is a repository for information dealing with tools used in the OSU Online CS Program.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">OSU Online CS Tools</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="class-number">CS123 <span class="menu-closed">&#11208;</span><span class="menu-open">&#11206;</span></span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/module-01/overview.html">Module 1 Overview</a><a class="page-link" href="/module-01/exploration-1.html">Exploration 1</a><a class="page-link" href="/module-01/exploration-2.html">Exploration 2</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <div class="post-content">
+    <h1 id="gradescope">GradeScope</h1>
+
+<p>GradeScope is a tool that is used to automate testing of student homework submissions. It is very flexible and allows you to write your own test scripts and provide your own Docker image. By default a Docker image is used which runs Ubuntu 18.04 as of this writing. Libraries are included which support writing tests in Python, Java and C#. You can read their documentation on the technical aspects <a href="https://gradescope-autograders.readthedocs.io/en/latest/specs/">here</a>. We are developing libraries to support other languages and updates on those will be able to be found on this page as they are added.</p>
+
+<h2 id="canvas-and-gradescope">Canvas and GradeScope</h2>
+
+<p>Ecampus provides guidance on getting GradeScope synced up with a Canvas course <a href="https://learn.oregonstate.edu/faq/what-gradescope">here</a>. This will get your GradeScope account and your Canvas account linked and sync up the course roster. Note that while you can select a GradeScope type assignment by choosing it as an external tool when creating an assignment, this does not actually create individual GradeScope assignments and should be avoided. Instead follow the directions on the Ecampus page to create assignments in GradeScope and in Canvas then link the two.</p>
+
+<h2 id="grade-script-setup">Grade Script Setup</h2>
+
+<p>The area where new users of GradeScope tend to see the most trouble is in the area of creating the correct file hierarchy. The important files are <a href="https://gradescope-autograders.readthedocs.io/en/latest/specs/#autograder-specifications">listed here</a>. The important thing is to make sure that that <code class="highlighter-rouge">setup.sh</code> and <code class="highlighter-rouge">run_autograder</code> are both in the <em>root</em> of your archive that you submit. It is easy to accidentally put everything in a directory and then add the directory to an archive. This will generate errors when submitted to GradeScope. Instead of selecting the directory to add to an archive, make sure to enter the directory and directly archive all the files.</p>
+
+<h2 id="language-specifics">Language Specifics</h2>
+
+<p>This portion of the guide will focus on issues specific to different languages. Currently the only supported language used by the program is Python. SQL, C and JavaScript are coming soon.</p>
+
+<h3 id="python">Python</h3>
+
+<p>The <a href="https://gradescope-autograders.readthedocs.io/en/latest/specs/">official documentation</a> does a good job describing the basics of the Python library. However, there are a few things that are easy to miss.</p>
+
+<h4 id="27-vs-3">2.7 vs 3+</h4>
+
+<p>By default the scripts all run <code class="highlighter-rouge">python</code>. If you are used to Windows or any package manager that assumes that <code class="highlighter-rouge">python</code> should download and install the latest version of Python, you will encounter some unexpected results. The default Ubuntu image’s package manager assumes that <code class="highlighter-rouge">python</code> means Python 2.7. If you want Python 3 you need to install <code class="highlighter-rouge">python3</code> and when you run python you need to run <code class="highlighter-rouge">python3</code>. The same goes for <code class="highlighter-rouge">pip</code> and <code class="highlighter-rouge">pip3</code>.</p>
+
+<h4 id="unittest-msg-parameter">unittest msg Parameter</h4>
+
+<p>The Python <code class="highlighter-rouge">unitttest</code> module is well documented at the <a href="https://docs.python.org/3.7/library/unittest.html">official Python site</a>. One feature that isn’t very well documented is the additional <code class="highlighter-rouge">msg</code> argument that can be passed to the assert functions. For example the definition for <code class="highlighter-rouge">assertEqual</code> is <code class="highlighter-rouge">assertEqual(first, second, msg=None)</code>. But most people don’t use the <code class="highlighter-rouge">msg</code> argument and just rely on the default output from <code class="highlighter-rouge">assertEqual</code>.</p>
+
+<p><code class="highlighter-rouge">msg</code> is actually very powerful for student learning. You can help craft more specific error messages. For example, if you were testing the base case of a merge sort you might run an assert like <code class="highlighter-rouge">assertEqual(len(mergesort[5]),1)</code>. But if the student returned an empty list the error message they would see would simply be <code class="highlighter-rouge">Test Failed: 0 != 1</code>. At the very least a message like <code class="highlighter-rouge">f'Merge sort test failed: When a single element list is passed into mergesort a single element list should be returned. Your function returned a list of length {len(mergesort[5]))}'</code>. This provides the student much more context and provides a more detailed explanation of what happened. If this is passed as the <code class="highlighter-rouge">msg</code> parameter they will see the message for failed tests on the results page of GradeScope.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+      <h2 class="footer-heading">OSU Online CS Tools</h2>
+        <ul class="contact-list">
+          <li class="p-name">Justin Wolford</li><li><a class="u-email" href="mailto:wolfordj@oregonstate.edu">wolfordj@oregonstate.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>This site is a repository for information dealing with tools used in the OSU Online CS Program.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
